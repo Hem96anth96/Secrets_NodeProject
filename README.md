@@ -6,24 +6,24 @@ Touch Dockerfile
 
 Contents of Dockerfile:
 
-# Start from the Jenkins base image
+#Start from the Jenkins base image
 FROM jenkins/jenkins:lts
 
-# Switch to the root user to install additional packages
+#Switch to the root user to install additional packages
 USER root
 
-# Install Node.js and npm
+#Install Node.js and npm
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
     && apt-get install -y nodejs
 
-# Switch back to the Jenkins user
+#Switch back to the Jenkins user
 USER jenkins
 
 
-# Build the Docker image
+#Build the Docker image
 docker build -t my-jenkins .
 
-# Run the Docker container
+#Run the Docker container
 docker run -p 8080:8080 -p 50000:50000 -p 3000:3000 my-jenkins
 
 
